@@ -1,8 +1,8 @@
 import { useState } from "react"
-import ClaudeRecipe from "./components/ClaudeRecipe"
-import IngredientsList from "./components/IngredientsList"
-import { getRecipeFromDeepseek } from "./ai"
-import GeneratedRecipe from "./components/GenereatedRecipe"
+import ClaudeRecipe from "./ClaudeRecipe"
+import IngredientsList from "./IngredientsList"
+import { getRecipeFromDeepseek } from "../ai"
+import GeneratedRecipe from "./GenereatedRecipe"
 import { Grid } from 'ldrs/react'
 import 'ldrs/react/Grid.css'
 
@@ -12,11 +12,14 @@ export default function MainContent() {
     const [ingredients, setIngredients] = useState(["Chicken", "Oregano", "Tomatoes"])
     const [recipe, setRecipe] = useState("")
     const [isLoading, setIsLoading] = useState(false)
+    const [buttonState, setButtonState] = useState("idle")
     async function getRecipe() {
         setIsLoading(true)
+        setButtonState("generating")
         try {
             const recipeMarkdown = await getRecipeFromDeepseek(ingredients)
             setRecipe(recipeMarkdown)
+            setButtonState("done")
         } catch (err) {
             console.error(err)
         } finally {
@@ -43,7 +46,8 @@ export default function MainContent() {
             </form>
             {ingredients.length > 0 &&
                 <IngredientsList ingredients={ingredients}
-                    getRecipe={getRecipe} />
+                    getRecipe={getRecipe} 
+                    status={buttonState}/>
             }
             {isLoading ? (
 

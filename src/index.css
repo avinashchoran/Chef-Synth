@@ -1,137 +1,406 @@
 * {
-    box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+:root {
+        --body-background: #FAFAF8;
+        --header-text:black;
+        --header-background: white;
+        --header-shadow: 0px 1px 3px 0px rgba(0,0,0,0.10), 0px 1px 2px 0px rgba(0,0,0,0.06);
+        --input-form-background: white;
+        --add-ingredient-button-background: #141413;
+        --add-ingredient-button-text: #FAFAF8;
+        --ingredient-text: black;
+        --ingredient-list-text:  #475467;
+        --get-recipe-background: #F0EFEB;
+        --get-recipe-ready-text: black;
+        --get-recipe-text: #6B7280;
+        --get-recipe-button-background: #D17557;
+        --get-recipe-button-text: #FAFAF8;
+        --suggested-recipe-text: #475467;
+}
+
+.dark{
+        --header-text:white;
+        --header-background:#201e23;
+        --header-shadow: 0px 1px 3px 0px rgba(255,255,255,0.08), 0px 1px 2px 0px rgba(255,255,255,0.04);
+        --body-background:#121212;
+        --input-form-background: #121212;
+        --add-ingredient-button-background: #911e0a;
+        --add-ingredient-button-text: #FAFAF8;
+        --ingredient-text: white;
+        --ingredient-list-text:  #E4E4E4;
+        --get-recipe-background: #272726;
+        --get-recipe-ready-text: white;
+        --get-recipe-text: #b1c5ee;
+        --get-recipe-button-background: #911e0a;
+        --get-recipe-button-text: #FAFAF8;
+        --suggested-recipe-text: #e4e4e4d5;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Inter, sans-serif;
-    background-color: #FAFAF8;
-   
+        margin: 0;
+        padding: 0;
+        font-family: Inter, sans-serif;
+        background-color: var(--body-background);
+
 }
 
 header {
-    display: flex;
-    background-color: white;
-    justify-content: center;
-    align-items: center;
-    gap: 11px;
-    height: 90px;
-    box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+        display: flex;
+        background-color: var(--header-background);
+        justify-content: center;
+        align-items: center;
+        gap: 11px;
+        height: 90px;
+        box-shadow: var(--header-shadow);
+        position: relative;
 }
 
 header img {
-    width: 50px;
+        width: 50px;
 }
 
 header h1 {
-    font-weight: 400;
+        font-weight: 400;
+        color: var(--header-text)
 }
 
+.github-link {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.github-link img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover; /* or cover, if you want it to fill */
+}
+
+
 main {
-    padding: 30px 100px 30px;
-    /* background-color: red; */
+        padding: 30px 100px 30px;
+        /* background-color: red; */
 }
 
 @media only screen and (max-width: 790px) {
-    main {
-        padding: 30px 50px 30px;
-    }
+        main {
+                padding: 30px 50px 30px;
+        }
 }
 
 
 .add-ingredient-form {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
+        display: flex;
+        justify-content: center;
+        gap: 12px;
 }
 
 .add-ingredient-form input {
-    padding: 9px 13px;
-    border-radius: 6px;
-    border: 1px solid #D1D5DB;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-    flex-grow: 1;
-    max-width: 400px;
-    min-width: 150px;
+        padding: 9px 13px;
+        border-radius: 6px;
+        border: 1px solid #D1D5DB;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+        flex-grow: 1;
+        max-width: 400px;
+        min-width: 150px;
+        background-color: var(--input-form-background);
 
 }
 
 .add-ingredient-form button {
-    font-family: Inter, sans-serif;
-    border-radius: 6px;
-    border: none;
-    background-color: #141413;
-    color: #FAFAF8;
-    width: 150px;
-    font-size: 0.875rem;
-    font-weight: 500;
+        font-family: Inter, sans-serif;
+        border-radius: 6px;
+        border: none;
+        background-color: var(--add-ingredient-button-background);
+        color: var(--add-ingredient-button-text);
+        width: 150px;
+        font-size: 0.875rem;
+        font-weight: 500;
 
 }
 
-.add-ingredient-form > button::before {
-    content: "+";
-    margin-right: 5px;
+.add-ingredient-form>button::before {
+        content: "+";
+        margin-right: 5px;
+}
+
+.ingredients-title{
+        color: var(--ingredient-text);
 }
 
 ul.ingredients-list {
-    margin-bottom: 48px;
+        margin-bottom: 48px;
 }
 
-ul.ingredients-list > li {
-    color: #475467;
-    line-height: 28px;
+ul.ingredients-list>li {
+        color: var(--ingredient-list-text);
+        line-height: 28px;
 }
 
 .get-recipe-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 8px;
-    background: #F0EFEB;
-    padding: 10px 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px;
+        background: var(--get-recipe-background);
+        padding: 10px 28px;
 }
 
 .get-recipe-container h3 {
-    font-size: 1.125rem;
-    font-weight: 500;
-    line-height: 24px;
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 24px;
+        color: var(--get-recipe-ready-text);
 }
 
 .get-recipe-container p {
-    color: #6B7280;
-    font-size: 0.875rem;
-    line-height: 20px;
+        color: var(--get-recipe-text);
+        font-size: 0.875rem;
+        line-height: 20px;
 }
 
 .get-recipe-container button {
-    border: none;
-    border-radius: 6px;
-    background: #D17557;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
-    color: #FAFAF8;
-    padding: 9px 17px;
-    font-family: Inter, sans-serif;
-    font-size: 0.875rem;
-    cursor: pointer;
+        border: none;
+        border-radius: 6px;
+        background: var(--get-recipe-button-background);
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+        color: var(--get-recipe-button-text);
+        padding: 9px 17px;
+        font-family: Inter, sans-serif;
+        font-size: 0.875rem;
+        cursor: pointer;
+}
+
+.get-recipe-container button:hover:not(:disabled) {
+        -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+        animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+.get-recipe-container button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7; 
 }
 
 .suggested-recipe-container {
-    color: #475467;
-    line-height: 28px;
-    font-size: 1.125rem;
-    font-weight: 400;
+        color: var(--suggested-recipe-text);
+        line-height: 28px;
+        font-size: 1.125rem;
+        font-weight: 400;
 }
 
-.suggested-recipe-container ul li, .suggested-recipe-container ol li {
-    margin-bottom: 8px;
+.suggested-recipe-container ul li,
+.suggested-recipe-container ol li {
+        margin-bottom: 8px;
 }
 
-.loader{
-    /* background-color: red; */
-    display: flex;
-    justify-content: center;
-    height: 30vh;
-    align-items: center;
-    
+.loader {
+        /* background-color: red; */
+        display: flex;
+        justify-content: center;
+        height: 30vh;
+        align-items: center;
+
+}
+
+
+.text-focus-in {
+        -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+
+.slide-in-blurred-bottom {
+        -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+        animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+/**
+ * ----------------------------------------
+ * animation slide-in-blurred-bottom
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-in-blurred-bottom {
+        0% {
+                -webkit-transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+                transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                -webkit-filter: blur(40px);
+                filter: blur(40px);
+                opacity: 0;
+        }
+
+        100% {
+                -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+                transform: translateY(0) scaleY(1) scaleX(1);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+                -webkit-filter: blur(0);
+                filter: blur(0);
+                opacity: 1;
+        }
+}
+
+@keyframes slide-in-blurred-bottom {
+        0% {
+                -webkit-transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+                transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+                -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+                -webkit-filter: blur(40px);
+                filter: blur(40px);
+                opacity: 0;
+        }
+
+        100% {
+                -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+                transform: translateY(0) scaleY(1) scaleX(1);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+                -webkit-filter: blur(0);
+                filter: blur(0);
+                opacity: 1;
+        }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2025-6-3 3:33:26
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation heartbeat
+ * ----------------------------------------
+ */
+@-webkit-keyframes heartbeat {
+        from {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transform-origin: center center;
+                transform-origin: center center;
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+        }
+
+        10% {
+                -webkit-transform: scale(0.91);
+                transform: scale(0.91);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+        }
+
+        17% {
+                -webkit-transform: scale(0.98);
+                transform: scale(0.98);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+        }
+
+        33% {
+                -webkit-transform: scale(0.87);
+                transform: scale(0.87);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+        }
+
+        45% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+        }
+}
+
+
+@keyframes heartbeat {
+        from {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-transform-origin: center center;
+                transform-origin: center center;
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+        }
+
+        10% {
+                -webkit-transform: scale(0.91);
+                transform: scale(0.91);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+        }
+
+        17% {
+                -webkit-transform: scale(0.98);
+                transform: scale(0.98);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+        }
+
+        33% {
+                -webkit-transform: scale(0.87);
+                transform: scale(0.87);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+        }
+
+        45% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+        }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2025-6-3 3:39:19
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation text-focus-in
+ * ----------------------------------------
+ */
+@-webkit-keyframes text-focus-in {
+        0% {
+                -webkit-filter: blur(12px);
+                filter: blur(12px);
+                opacity: 0;
+        }
+
+        100% {
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
+                opacity: 1;
+        }
+}
+
+@keyframes text-focus-in {
+        0% {
+                -webkit-filter: blur(12px);
+                filter: blur(12px);
+                opacity: 0;
+        }
+
+        100% {
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
+                opacity: 1;
+        }
 }
