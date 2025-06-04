@@ -4,14 +4,14 @@
 
 :root {
         --body-background: #FAFAF8;
-        --header-text:black;
+        --header-text: black;
         --header-background: white;
-        --header-shadow: 0px 1px 3px 0px rgba(0,0,0,0.10), 0px 1px 2px 0px rgba(0,0,0,0.06);
+        --header-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.10), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
         --input-form-background: white;
         --add-ingredient-button-background: #141413;
         --add-ingredient-button-text: #FAFAF8;
         --ingredient-text: black;
-        --ingredient-list-text:  #475467;
+        --ingredient-list-text: #475467;
         --get-recipe-background: #F0EFEB;
         --get-recipe-ready-text: black;
         --get-recipe-text: #6B7280;
@@ -20,16 +20,16 @@
         --suggested-recipe-text: #475467;
 }
 
-.dark{
-        --header-text:white;
-        --header-background:#201e23;
-        --header-shadow: 0px 1px 3px 0px rgba(255,255,255,0.08), 0px 1px 2px 0px rgba(255,255,255,0.04);
-        --body-background:#121212;
+.dark {
+        --header-text: white;
+        --header-background: #201e23;
+        --header-shadow: 0px 1px 3px 0px rgba(255, 255, 255, 0.08), 0px 1px 2px 0px rgba(255, 255, 255, 0.04);
+        --body-background: #121212;
         --input-form-background: #121212;
         --add-ingredient-button-background: #911e0a;
         --add-ingredient-button-text: #FAFAF8;
         --ingredient-text: white;
-        --ingredient-list-text:  #E4E4E4;
+        --ingredient-list-text: #E4E4E4;
         --get-recipe-background: #272726;
         --get-recipe-ready-text: white;
         --get-recipe-text: #b1c5ee;
@@ -43,6 +43,7 @@ body {
         padding: 0;
         font-family: Inter, sans-serif;
         background-color: var(--body-background);
+        transition: background-color 0.3s ease, color 0.3s ease;
 
 }
 
@@ -54,39 +55,82 @@ header {
         gap: 11px;
         height: 90px;
         box-shadow: var(--header-shadow);
-        position: relative;
+
+        transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header img {
+.sidebar-toggle{
+         background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+.header-center {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    justify-content: center;
+}
+
+.header-center img {
         width: 50px;
 }
 
-header h1 {
+.header-center h1 {
         font-weight: 400;
         color: var(--header-text)
 }
 
+
+.header-right{
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        gap: 12px;
+        margin-right: 10px;
+
+}
+
 .github-link {
-    width: 25px;
-    height: 25px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    right: 32px;
-    top: 50%;
-    transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        transition: box-shadow 0.4s ease-in;
+        /* background-color: white; */
+        border-radius: 50%;
+        border: none;
+        
+        
 }
 
-.github-link img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover; /* or cover, if you want it to fill */
+.github-link svg {
+        width: 30px;
+        height: 30px;
+        color:var(header)
+        
+        /* or cover, if you want it to fill */
 }
 
+.github-link:hover{
+        box-shadow: 0 0 45px 2px #d17557;
+}
+
+.eggflip-container {
+        /* transform: scale(0.1);  */
+        padding-top: 5px;
+        /* background-color: white; */
+         width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* position: absolute; */
+        /* right: -350px;  */
+
+
+}
 
 main {
         padding: 30px 100px 30px;
@@ -135,7 +179,7 @@ main {
         margin-right: 5px;
 }
 
-.ingredients-title{
+.ingredients-title {
         color: var(--ingredient-text);
 }
 
@@ -183,13 +227,13 @@ ul.ingredients-list>li {
 }
 
 .get-recipe-container button:hover:not(:disabled) {
-        -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
-        animation: heartbeat 1.5s ease-in-out infinite both;
+        -webkit-animation: heartbeat 1.5s ease-in-out 2 both;
+        animation: heartbeat 1.5s ease-in-out 2 both;
 }
 
 .get-recipe-container button:disabled {
-    cursor: not-allowed;
-    opacity: 0.7; 
+        cursor: not-allowed;
+        opacity: 0.7;
 }
 
 .suggested-recipe-container {
@@ -224,6 +268,13 @@ ul.ingredients-list>li {
         -webkit-animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
         animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 }
+
+
+.wobble-hor-bottom {
+	-webkit-animation: wobble-hor-bottom 0.8s both;
+	        animation: wobble-hor-bottom 0.8s both;
+}
+
 
 /**
  * ----------------------------------------
@@ -403,4 +454,70 @@ ul.ingredients-list>li {
                 filter: blur(0px);
                 opacity: 1;
         }
+}
+
+
+
+/**
+ * ----------------------------------------
+ * animation wobble-hor-bottom
+ * ----------------------------------------
+ */
+@-webkit-keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+            transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+            transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+            transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+            transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+            transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+            transform: translateX(-30px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+            transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+            transform: translateX(-15px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+            transform: translateX(9px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+            transform: translateX(-6px) rotate(-1.2deg);
+  }
 }
