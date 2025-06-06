@@ -50,13 +50,21 @@ body {
 header {
         display: flex;
         background-color: var(--header-background);
-        /* justify-content: center; */
+        justify-content: center;
         align-items: center;
-        gap: 11px;
+        gap: 6pxpx;
         height: 90px;
         box-shadow: var(--header-shadow);
         transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.ApiSideBar,
+.header-right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+}
+
 
 .sidebar-toggle {
         background: none;
@@ -70,21 +78,28 @@ header {
         display: flex;
         align-items: center;
         gap: 12px;
-        flex: 1;
+        flex: 0 1 auto;
         justify-content: center;
+        margin: 0 40px;
+
 }
 
 .header-center svg {
         width: 60px;
         height: 60px;
         color: var(--header-text);
-        /* background-color: red; */
-
 }
 
 .header-center h1 {
         font-weight: 400;
-        color: var(--header-text)
+        color: var(--header-text);
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        white-space: nowrap;
+        font-size: clamp(1.4rem, 5vw, 2.5rem);
+        overflow: hidden;
+        text-overflow: ellipsis;
 }
 
 
@@ -94,6 +109,7 @@ header {
         align-items: center;
         gap: 12px;
         margin-right: 20px;
+
 }
 
 .github-link {
@@ -271,7 +287,7 @@ ul.ingredients-list>li {
 }
 
 .side-bar {
-        background-color: var(--body-background); 
+        background-color: var(--body-background);
 }
 
 
