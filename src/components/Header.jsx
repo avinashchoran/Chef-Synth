@@ -1,6 +1,4 @@
-import logo from "../assets/chef-claude-icon.png"
 import ChefLogo from "../assets/chef-synth-logo.svg?react"
-import githubLogo from "../assets/github-icon.png"
 import OmeletToggleSwitch from "./OmeletToggleSwitch"
 import ApiSideBar from "./ApiSideBar";
 export default function Header(props) {
