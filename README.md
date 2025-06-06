@@ -12,10 +12,6 @@ Check out the live demo to see Chef Synth in action:
 
 
 
-https://github.com/user-attachments/assets/ac2eb878-19da-4977-9ebc-ae3c118d42c3
-
-
-
 ---
 ## 🚀 Features
 

@@ -6,10 +6,10 @@ export default function IngredientsList(props) {
     if (props.status === "generating") buttonText = "Generating";
     else if (props.status === "done") buttonText = "Generate Again";
     return (
-        <section>
+        <section className="slide-in-fwd-center">
             <h2 className="ingredients-title">Ingredients on hand:</h2>
             <ul className="ingredients-list" aria-live="polite">{ingredientsListItems}</ul>
-            {props.ingredients.length > 3 && <div className="get-recipe-container slide-in-blurred-bottom">
+            {props.ingredients.length > 2 && <div className="get-recipe-container slide-in-blurred-bottom">
                 <div>
                     <h3>Ready for a recipe?</h3>
                     <p>Generate a recipe from your list of ingredients.</p>

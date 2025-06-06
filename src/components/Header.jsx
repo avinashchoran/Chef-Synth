@@ -1,22 +1,24 @@
 import logo from "../assets/chef-claude-icon.png"
+import ChefLogo from "../assets/chef-synth-logo.svg?react"
 import githubLogo from "../assets/github-icon.png"
 import OmeletToggleSwitch from "./OmeletToggleSwitch"
+import ApiSideBar from "./ApiSideBar";
 export default function Header(props) {
+    
     return (
         <header>
 
-            <button className="sidebar-toggle">
-                
-            </button>
+            
+            <ApiSideBar setApiKey={props.setApiKey}/>
 
 
 
             <div className="header-center">
-                <img src={logo} />
+                <ChefLogo/>
                 <h1>Chef Synth</h1>
             </div>
 
-
+            
 
 
 

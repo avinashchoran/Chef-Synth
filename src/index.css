@@ -50,33 +50,36 @@ body {
 header {
         display: flex;
         background-color: var(--header-background);
-        justify-content: center;
+        /* justify-content: center; */
         align-items: center;
         gap: 11px;
         height: 90px;
         box-shadow: var(--header-shadow);
-
         transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.sidebar-toggle{
-         background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    margin-right: 16px;
+.sidebar-toggle {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+        margin-right: 16px;
 }
 
 .header-center {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex: 1;
-    justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+        justify-content: center;
 }
 
-.header-center img {
-        width: 50px;
+.header-center svg {
+        width: 60px;
+        height: 60px;
+        color: var(--header-text);
+        /* background-color: red; */
+
 }
 
 .header-center h1 {
@@ -85,56 +88,45 @@ header {
 }
 
 
-.header-right{
+.header-right {
         display: flex;
         justify-content: right;
         align-items: center;
         gap: 12px;
-        margin-right: 10px;
-
+        margin-right: 20px;
 }
 
 .github-link {
         width: 30px;
         height: 30px;
         transition: box-shadow 0.4s ease-in;
-        /* background-color: white; */
         border-radius: 50%;
         border: none;
-        
-        
 }
 
 .github-link svg {
         width: 30px;
         height: 30px;
-        color:var(header)
-        
-        /* or cover, if you want it to fill */
+        color: var(--header-text)
 }
 
-.github-link:hover{
+.github-link:hover {
         box-shadow: 0 0 45px 2px #d17557;
 }
 
 .eggflip-container {
-        /* transform: scale(0.1);  */
         padding-top: 5px;
-        /* background-color: white; */
-         width: 50px;
+        width: 50px;
         height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
-        /* position: absolute; */
-        /* right: -350px;  */
 
 
 }
 
 main {
         padding: 30px 100px 30px;
-        /* background-color: red; */
 }
 
 @media only screen and (max-width: 790px) {
@@ -159,6 +151,7 @@ main {
         max-width: 400px;
         min-width: 150px;
         background-color: var(--input-form-background);
+        color: var(--header-texts);
 
 }
 
@@ -249,11 +242,69 @@ ul.ingredients-list>li {
 }
 
 .loader {
-        /* background-color: red; */
         display: flex;
         justify-content: center;
         height: 30vh;
         align-items: center;
+}
+
+
+.side-bar-toggle {
+        color: black;
+        margin-left: 20px;
+        color: var(--header-text);
+        height: 1.5rem;
+        width: 1.5rem;
+        padding: 0;
+        border-radius: 5px;
+        transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in;
+}
+
+
+.side-bar-toggle:hover {
+
+        box-shadow: 0 0 45px 8px #d17557;
+}
+
+.side-bar-toggle:active {
+        border: 2px solid #d17557;
+}
+
+.side-bar {
+        background-color: var(--body-background); 
+}
+
+
+.enter-api-keys {
+        margin-top: 50px;
+
+}
+
+#apiInput {
+        background-color: var(--body-background);
+        width: 90%;
+
+}
+
+.api-button {
+        background-color: var(--get-recipe-button-background);
+        color: var(--get-recipe-button-text);
+}
+
+.button-expand {
+        width: 100%;
+        margin: 3px;
+}
+
+.input-group {
+        display: flex;
+        padding: 0 3px;
+}
+
+.api-button-group {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        display: flex;
 
 }
 
@@ -269,10 +320,14 @@ ul.ingredients-list>li {
         animation: slide-in-blurred-bottom 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 }
 
+.slide-in-fwd-center {
+        -webkit-animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: slide-in-fwd-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
 
 .wobble-hor-bottom {
-	-webkit-animation: wobble-hor-bottom 0.8s both;
-	        animation: wobble-hor-bottom 0.8s both;
+        -webkit-animation: wobble-hor-bottom 0.8s both;
+        animation: wobble-hor-bottom 0.8s both;
 }
 
 
@@ -456,68 +511,119 @@ ul.ingredients-list>li {
         }
 }
 
-
-
 /**
  * ----------------------------------------
  * animation wobble-hor-bottom
  * ----------------------------------------
  */
 @-webkit-keyframes wobble-hor-bottom {
-  0%,
-  100% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-  }
-  15% {
-    -webkit-transform: translateX(-30px) rotate(-6deg);
-            transform: translateX(-30px) rotate(-6deg);
-  }
-  30% {
-    -webkit-transform: translateX(15px) rotate(6deg);
-            transform: translateX(15px) rotate(6deg);
-  }
-  45% {
-    -webkit-transform: translateX(-15px) rotate(-3.6deg);
-            transform: translateX(-15px) rotate(-3.6deg);
-  }
-  60% {
-    -webkit-transform: translateX(9px) rotate(2.4deg);
-            transform: translateX(9px) rotate(2.4deg);
-  }
-  75% {
-    -webkit-transform: translateX(-6px) rotate(-1.2deg);
-            transform: translateX(-6px) rotate(-1.2deg);
-  }
+
+        0%,
+        100% {
+                -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+        }
+
+        15% {
+                -webkit-transform: translateX(-30px) rotate(-6deg);
+                transform: translateX(-30px) rotate(-6deg);
+        }
+
+        30% {
+                -webkit-transform: translateX(15px) rotate(6deg);
+                transform: translateX(15px) rotate(6deg);
+        }
+
+        45% {
+                -webkit-transform: translateX(-15px) rotate(-3.6deg);
+                transform: translateX(-15px) rotate(-3.6deg);
+        }
+
+        60% {
+                -webkit-transform: translateX(9px) rotate(2.4deg);
+                transform: translateX(9px) rotate(2.4deg);
+        }
+
+        75% {
+                -webkit-transform: translateX(-6px) rotate(-1.2deg);
+                transform: translateX(-6px) rotate(-1.2deg);
+        }
 }
+
 @keyframes wobble-hor-bottom {
-  0%,
-  100% {
-    -webkit-transform: translateX(0%);
-            transform: translateX(0%);
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
-  }
-  15% {
-    -webkit-transform: translateX(-30px) rotate(-6deg);
-            transform: translateX(-30px) rotate(-6deg);
-  }
-  30% {
-    -webkit-transform: translateX(15px) rotate(6deg);
-            transform: translateX(15px) rotate(6deg);
-  }
-  45% {
-    -webkit-transform: translateX(-15px) rotate(-3.6deg);
-            transform: translateX(-15px) rotate(-3.6deg);
-  }
-  60% {
-    -webkit-transform: translateX(9px) rotate(2.4deg);
-            transform: translateX(9px) rotate(2.4deg);
-  }
-  75% {
-    -webkit-transform: translateX(-6px) rotate(-1.2deg);
-            transform: translateX(-6px) rotate(-1.2deg);
-  }
+
+        0%,
+        100% {
+                -webkit-transform: translateX(0%);
+                transform: translateX(0%);
+                -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+        }
+
+        15% {
+                -webkit-transform: translateX(-30px) rotate(-6deg);
+                transform: translateX(-30px) rotate(-6deg);
+        }
+
+        30% {
+                -webkit-transform: translateX(15px) rotate(6deg);
+                transform: translateX(15px) rotate(6deg);
+        }
+
+        45% {
+                -webkit-transform: translateX(-15px) rotate(-3.6deg);
+                transform: translateX(-15px) rotate(-3.6deg);
+        }
+
+        60% {
+                -webkit-transform: translateX(9px) rotate(2.4deg);
+                transform: translateX(9px) rotate(2.4deg);
+        }
+
+        75% {
+                -webkit-transform: translateX(-6px) rotate(-1.2deg);
+                transform: translateX(-6px) rotate(-1.2deg);
+        }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2025-6-6 20:13:41
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-in-fwd-center
+ * ----------------------------------------
+ */
+@-webkit-keyframes slide-in-fwd-center {
+        0% {
+                -webkit-transform: translateZ(-1400px);
+                transform: translateZ(-1400px);
+                opacity: 0;
+        }
+
+        100% {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                opacity: 1;
+        }
+}
+
+@keyframes slide-in-fwd-center {
+        0% {
+                -webkit-transform: translateZ(-1400px);
+                transform: translateZ(-1400px);
+                opacity: 0;
+        }
+
+        100% {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+                opacity: 1;
+        }
 }
